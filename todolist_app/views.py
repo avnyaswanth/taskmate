@@ -43,7 +43,7 @@ def about(request):
 def delete_task(request,task_id):
     task_obj = TasksList.objects.get(pk=task_id)
     if task_obj.owner == request.user:
-        task.delete()
+        task_obj.delete()
     else:
         messages.error(request,'Access Denied!')
     return redirect('todolist')
